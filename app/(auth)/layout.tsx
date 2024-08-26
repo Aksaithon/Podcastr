@@ -1,16 +1,4 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
-
-export const metadata: Metadata = {
-  title: "Podcastr",
-  description: "Generated your podcasts using AI",
-  icons: {
-    icon: "/icons/logo.svg",
-  }
-};
+import Image from "next/image";
 
 export default function RootLayout({
   children,
@@ -18,8 +6,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
-    </html>
+    <main className=" relative h-screen w-full ">
+      <div className=" absolute size-full  ">
+        <Image
+          src={"/images/bg-img.png"}
+          alt="background"
+          fill
+          className=" size-full  "
+        />
+      </div>
+      {children}
+    </main>
   );
 }
